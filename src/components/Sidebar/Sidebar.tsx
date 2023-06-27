@@ -1,6 +1,7 @@
 import { PencilLine } from '@phosphor-icons/react'
 
 import styles from './Sidebar.module.css'
+import { Avatar } from '../Avatar/Avatar'
 
 export function Sidebar() {
   return (
@@ -11,7 +12,7 @@ export function Sidebar() {
         className={styles.cover}
       />
       <div className={styles.profile}>
-        <img src="https://github.com/jhameson.png" alt="" />
+        <Avatar src="https://github.com/jhameson.png" />
         <strong>Jhameson</strong>
         <span>Web Developer</span>
       </div>
