@@ -1,3 +1,4 @@
+import { Coment } from '../Comment/Comment'
 import styles from './Post.module.css'
 
 export function Post() {
@@ -6,7 +7,7 @@ export function Post() {
       <header>
         <div className={styles.author}>
           <img
-            src="https://github.com/jhameson.png"
+            src="https://www.github.com/jhameson.png"
             alt=""
             className={styles.avatar}
           />
@@ -38,6 +39,11 @@ export function Post() {
           <button type="submit">Publicar</button>
         </footer>
       </form>
+      <div className={styles.comentList}>
+        <Coment />
+        <Coment />
+        <Coment />
+      </div>
     </article>
   )
 }

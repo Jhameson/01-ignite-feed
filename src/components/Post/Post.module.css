@@ -125,3 +125,7 @@
     visibility: visible;
     max-height: none;
 }
+
+.comentList {
+    margin-top: 2rem;
+}
