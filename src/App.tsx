@@ -5,6 +5,93 @@ import { Post } from './components/Post/Post'
 import './global.css'
 import styles from './App.module.css'
 
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: 'https://github.com/jhameson.png',
+      name: 'Jhameson Lucas',
+      role: 'Tech Lead',
+    },
+    content: [
+      {
+        type: 'paragraph',
+        content: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
+      },
+      {
+        type: 'paragraph',
+        content: 'Laboriosam totam ea, modi, assumenda officia exercitationem,',
+      },
+      {
+        type: 'paragraph',
+        content:
+          'accusantium distinctio asperiores quos culpa eos consequuntur eveniet ',
+      },
+      {
+        type: 'link',
+        content: ' consequuntur eveniet ',
+      },
+    ],
+    publishedAt: new Date('2022-05-03 20:00:00'),
+  },
+  {
+    id: 2,
+    author: {
+      avatarUrl: 'https://github.com/jhameson.png',
+      name: 'Jhameson Lucas',
+      role: 'Tech Lead',
+    },
+    content: [
+      {
+        type: 'paragraph',
+        content: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
+      },
+      {
+        type: 'paragraph',
+        content: 'Laboriosam totam ea, modi, assumenda officia exercitationem,',
+      },
+      {
+        type: 'paragraph',
+        content:
+          'accusantium distinctio asperiores quos culpa eos consequuntur eveniet ',
+      },
+      {
+        type: 'link',
+        content: ' consequuntur eveniet ',
+      },
+    ],
+    publishedAt: new Date('2022-05-10 20:00:00'),
+  },
+  {
+    id: 3,
+    author: {
+      avatarUrl: 'https://github.com/maykbrito.png',
+      name: 'Jhameson Lucas',
+      role: 'Tech Lead',
+    },
+    content: [
+      {
+        type: 'paragraph',
+        content: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
+      },
+      {
+        type: 'paragraph',
+        content: 'Laboriosam totam ea, modi, assumenda officia exercitationem,',
+      },
+      {
+        type: 'paragraph',
+        content:
+          'accusantium distinctio asperiores quos culpa eos consequuntur eveniet ',
+      },
+      {
+        type: 'link',
+        content: ' consequuntur eveniet ',
+      },
+    ],
+    publishedAt: new Date('2023-05-11 20:00:00'),
+  },
+]
+
 export function App() {
   return (
     <div>
@@ -12,9 +99,16 @@ export function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post />
-          <Post />
-          <Post />
+          {posts.map((posts) => {
+            return (
+              <Post
+                key={posts.id}
+                author={posts.author}
+                content={posts.content}
+                publishedAt={posts.publishedAt}
+              />
+            )
+          })}
         </main>
       </div>
     </div>
