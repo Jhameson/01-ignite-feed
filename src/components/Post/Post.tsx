@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react'
 import ptBr from 'date-fns/locale/pt-BR'
 import { format, formatDistanceToNow } from 'date-fns'
 
@@ -7,14 +7,21 @@ import { Comment } from '../Comment/Comment'
 
 import styles from './Post.module.css'
 
+interface Author {
+  avatarUrl: string
+  name: string
+  role: string
+}
+
+interface Content {
+  type: 'link' | 'paragraph'
+  content: string
+}
+
 interface PostProps {
-  author: {
-    avatarUrl: string
-    name: string
-    role: string
-  }
-  content: [{ type: string; content: string }]
-  publishedAt: any
+  author: Author
+  publishedAt: Date
+  content: Content[]
 }
 
 export function Post({ author, content, publishedAt }: PostProps) {
@@ -37,18 +44,18 @@ export function Post({ author, content, publishedAt }: PostProps) {
     addSuffix: true,
   })
 
-  function handleCreateNewComment(event: any) {
+  function handleCreateNewComment(event: FormEvent) {
     event.preventDefault()
     setComments([...comments, newCommentText])
     setNewCommentText('')
   }
 
-  function handleNewCommentChange(event: any) {
+  function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity('')
     setNewCommentText(event.target.value)
   }
 
-  function handleNewCommentInvalid(event: any) {
+  function handleNewCommentInvalid(event: InvalidEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity('Esse campo é obrigatório!')
   }
 
